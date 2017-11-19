@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gallery</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		table{
+			margin-top: 10px;
+			margin-bottom: 10px;
+			border: black 1px solid;
+			width: 200px;
+			height: 150px;
+		}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script>
+		var sourceList = [{
+				pName: 'pic1 title',
+				pSource: '1.img'
+			},{
+				pName : 'pic2 title',
+				pSource: '2.img'
+			}]
+	</script>
+</head>
+<body ng-app="myApp" ng-controller="gCtrl">
+	<table ng-repeat="x in list">
+		<tr>
+			<td>{{x.pName}}</td>
+		</tr>
+		<tr>
+			<td>{{x.pSource}}</td>
+		</tr>
+	</table>
+
+	<script>
+		var app = angular.module("myApp", []);
+		app.controller("gCtrl",function($scope){
+			$scope.list = sourceList;
+		});
+	</script>
+</body>
+</html>
