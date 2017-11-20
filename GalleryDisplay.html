@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Gallery</title>
+	<title>Portfolio</title>
 	<meta charset="utf-8">
 	<style type="text/css">
 		table{
@@ -13,31 +13,57 @@
 		}
 	</style>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		div{
+			width: 33%;
+		}
+		@media only screen and (max-width: 768px) {
+    		div {
+    	    	width: 100%;
+    	    	text-align: center;
+    		}
+		}
+	</style>
 	<script>
-		/*pseudo api: JSON file*/
-		var sourceList = [{
-				pName: 'pic1 title',
-				pSource: '<img src="1.img">'
-			},{
-				pName : 'pic2 title',
-				pSource: '<img src="2.img">'
-			}]
+		var projectList = [{
+			"pName" : "Title I",
+			"pSource" : "1.jpg",
+			"pDate" : "Jan 8th"
+		},{
+			"pName" : "Title II",
+			"pSource": "2.jpg",
+			"pDate" : "Jan 8th"
+		},{
+			"pName" : "Title III",
+			"pSource" : "3.jpg",
+			"pDate" : "Jan 8th"
+		},{
+			"pName" : "Title IV",
+			"pSource": "1.jpg",
+			"pDate" : "Jan 8th"
+		},{
+			"pName" : "Title V",
+			"pSource": "2.jpg",
+			"pDate" : "Jan 8th"
+		},{
+			"pName" : "Title VI",
+			"pSource": "3.jpg",
+			"pDate" : "Jan 8th"
+		}]
 	</script>
 </head>
 <body ng-app="myApp" ng-controller="gCtrl">
-	<table ng-repeat="x in list">
-		<tr>
-			<td>{{x.pName}}</td>
-		</tr>
-		<tr>
-			<td>{{x.pSource}}</td>
-		</tr>
-	</table>
-
+	<div style="display: inline-block;" ng-repeat="x in list">
+		<h2>{{x.pName}}</h2>
+		<img style="width:100px;" ng-src="{{(x.pSource)}}">
+		<h4>{{x.pDate}}</h4>
+	</div>
 	<script>
 		var app = angular.module("myApp", []);
 		app.controller("gCtrl",function($scope){
-			$scope.list = sourceList;
+			$scope.list = projectList;
 		});
 	</script>
 </body>
